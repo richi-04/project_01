@@ -1,15 +1,16 @@
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from .models import Profile
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 
 
 
 # Create your views here.
 def registerForm(request):
     if request.method == 'POST':
-        name = request.POST.get("user")
-        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", name)
+        username = request.POST["uname"]
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", username)
         email = request.POST["email"]
         print("🚀 ~ file: views.py ~ line 12 ~ email", email)
         phone = request.POST["phone"]
@@ -23,7 +24,7 @@ def registerForm(request):
         x = ','.join(hobby_data)
         hobby_data = str(x)
 
-        profiledata = Profile(name=name,email=email,phone=phone,gender=gender,password=password,hobby=hobby_data)
+        profiledata = Profile(uname=username,email=email,phone=phone,gender=gender,password=password,hobby=hobby_data)
         profiledata.save()
              
 
@@ -32,21 +33,18 @@ def registerForm(request):
 
 
 
-def loginForm(request):  
-  user = authenticate(name=user, password=password)
-  if user is not None:
+def loginForm(request): 
+    username = request.POST.get('uname')
+    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", username)
+    password = request.POST.get('password')
+    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", password)
+    user = authenticate(username='admin', password='admin')
+    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", user)
+    if user is not None:
       login(request, user)
-                messages.info(
-                    request, f"You are now logged in as {username}.")
-                return redirect('home')
-        
-            else:
-                messages.error(request, "Invalid username or password.")
+      return redirect("home")
     else:
-        messages.error(request, "Invalid username or password.")
-        User = Authentication()
-
-    return render(request, "login.html")
+        return render(request, "login.html")
 
 
 def home(request):

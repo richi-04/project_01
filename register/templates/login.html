@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume</title>
+    <title>Login</title>
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'login.css' %}" />
@@ -23,10 +23,10 @@
                 {% csrf_token %}
                 <div class="container">
                 <h1>Login</h1>
-                <p>Please register if you don't have account.</p>
+                <!--<p>Please register if you don't have account.</p>-->
                 <hr>
                 <label for="name"><b>Name</b></label>
-                <input type="text" placeholder="Enter Name" name="user" required>
+                <input type="text" placeholder="Enter Name" name="uname" required>
                 <label for="password"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="password"required>
                 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume</title>
+    <title>Register</title>
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'register.css' %}" />
@@ -26,12 +26,12 @@
                 <p>Please fill in this form to create an account.</p>
                 <hr>
                 <label for="name"><b>Name</b></label>
-                <input type="text" placeholder="Enter Name" name="user" required>
+                <input type="text" placeholder="Enter Name" name="uname" required>
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Enter Email" name="email" required>
                 <label for="phone"><b>Phone</b></label>
                 <input type="text" placeholder="Enter Phone" name="phone" required>
-                <label for="name"><b>Gender</b></label><br>
+                <label for="gender"><b>Gender</b></label><br>
                 <input type="radio" id="m" name="gender" value="Male">
                 <label for="gender">Male</label><br>
                 <input type="radio" id="f" name="gender" value="Female">
@@ -41,7 +41,7 @@
                 <label for="password2"><b>Repeat Password</b></label>
                 <input type="password" placeholder="Repeat Password" name="password2"  required>
                 <hr>
-               <label for="name"><b>Hobby</b></label><br>
+               <label for="hobby"><b>Hobby</b></label><br>
                 <input type="checkbox" id="t" name="hobby[]" value="Travel">
                 <label for="hobby">Travel</label><br>
                 <input type="checkbox" id="d" name="hobby[]" value="Dance">
