@@ -70,7 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'loginHtml.wsgi.application'
 
-
+import os
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -84,6 +84,12 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
@@ -104,6 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "register.Profile"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
