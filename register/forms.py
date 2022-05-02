@@ -8,7 +8,3 @@ class UserForm(UserCreationForm):
         model = Profile
         fields = ('username', 'email', 'phone', 'gender', 'password', 'hobby')
 
-# class ProfileForm(forms.ModelForm):
-#     class Meta:
-#         model = Profile
-#         fields = ('phone', 'gender', 'hobby')

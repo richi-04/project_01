@@ -48,7 +48,7 @@ def loginForm(request):
     print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", username)
     password = request.POST.get('password')
     print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", password)
-    user = authenticate(username=username, password=password)
+    user = authenticate(username='login01', password=password)
     print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", user)
     if user is not None:
       login(request, user)
